@@ -16,6 +16,7 @@ class LLStack {
 		int size();          // return size of stack
 		void push(string s); // push string s to the stack
 		void pop();          // remove the top string from the stack
+		int removeAll(const string& target); // remove all nodes with data == target; return count removed
 
 	private:
 		Node* head;         // pointer to the head of linked list

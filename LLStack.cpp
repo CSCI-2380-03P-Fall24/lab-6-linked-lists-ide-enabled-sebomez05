@@ -59,3 +59,29 @@ void LLStack::pop()
 {
 
 }
+
+/*
+    define the removeAll() method, which removes all nodes 
+    that have data equal to the given target string.
+    - Traverse through the linked list
+    - For each matching node, unlink it and delete it
+    - Update head, tail, and count accordingly
+    - Return how many nodes were removed
+
+	Hints:
+    ----------------------------------------
+    - Always check if the list becomes empty after deletions (head == nullptr).
+      If so, make sure tail is also set to nullptr.
+    - Use a counter variable (such as 'removed') to track how many were deleted.
+    - Be careful not to lose your place when deleting nodes:
+        * Save curr->next in a temporary pointer before deleting curr.
+    - Handle edge cases:
+        * Stack is empty (no nodes to remove)
+        * Target not found (return 0)
+        * All nodes match the target (list becomes empty)
+*/
+int LLStack::removeAll(const string& target) 
+{
+	return -1;
+}
+

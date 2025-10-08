@@ -58,6 +58,15 @@ jobs:
         command: make test try=pop
         timeout: 10
         max-score: 1
+    - name: removeAll
+      id: removeAll
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: removeAll
+        setup-command: ''
+        command: make test try=removeAll
+        timeout: 10
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -66,5 +75,6 @@ jobs:
         SIZE_RESULTS: "${{steps.size.outputs.result}}"
         PUSH_RESULTS: "${{steps.push.outputs.result}}"
         POP_RESULTS: "${{steps.pop.outputs.result}}"
+        REMOVEALL_RESULTS: "${{steps.removeAll.outputs.result}}"
       with:
-        runners: llstack,top,size,push,pop
+        runners: llstack,top,size,push,pop,removeAll

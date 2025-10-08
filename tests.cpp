@@ -72,3 +72,24 @@ TEST_CASE("pop") {
     CHECK_NOTHROW(test2.pop());
     CHECK_NOTHROW(test2.pop());
 }
+
+TEST_CASE("removeAll") {
+    LLStack s;
+    s.push("a"); s.push("b"); s.push("a"); s.push("c"); s.push("a"); // top: a c a b a (head is top)
+    CHECK(s.size() == 5);
+    CHECK(s.top() == "a");
+    int r = s.removeAll("a");
+    CHECK(r == 3);
+    CHECK(s.size() == 2);
+    CHECK(s.top() == "c"); // remaining order preserved for non-deleted nodes: c then b
+    r = s.removeAll("z");
+    CHECK(r == 0);
+    CHECK(s.size() == 2);
+    r = s.removeAll("c");
+    CHECK(r == 1);
+    CHECK(s.top() == "b");
+    r = s.removeAll("b");
+    CHECK(r == 1);
+    CHECK(s.size() == 0);
+    CHECK(s.top() == "");
+}
